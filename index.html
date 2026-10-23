@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b14">
+  <title>PLAYVERSE — Arcade Universe</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Playverse home">
+        <span class="brand-icon">P</span>
+        <span>PLAY<span class="accent">VERSE</span></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-btn" id="sound-toggle" aria-label="Toggle sound">🔊 Sound</button>
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">◐ Theme</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="live-dot"></span> YOUR ARCADE UNIVERSE</span>
+          <h1>Enter your next<br><span class="gradient-text">PLAYVERSE.</span></h1>
+          <p>Ten games. Endless challenges. One place to play.</p>
+          <a class="primary-btn" href="#games">Explore games <span>↘</span></a>
+          <div class="hero-stats">
+            <div><strong id="total-games">10</strong><span>Games</span></div>
+            <div><strong id="played-count">0</strong><span>Games played</span></div>
+            <div><strong id="best-score">0</strong><span>Best score</span></div>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="planet">PV</div>
+          <div class="floating-card card-one">🎮 <span>READY PLAYER?</span></div>
+          <div class="floating-card card-two">⚡ <span>NEW HIGH SCORE</span></div>
+          <div class="floating-card card-three">🌌 <span>YOUR UNIVERSE</span></div>
+        </div>
+      </section>
+
+      <section class="stats-strip">
+        <div><span class="strip-icon">🏆</span><div><strong>Personal records</strong><p>Beat your best scores</p></div></div>
+        <div><span class="strip-icon">🎯</span><div><strong>Quick to play</strong><p>Jump into a game instantly</p></div></div>
+        <div><span class="strip-icon">📱</span><div><strong>Play anywhere</strong><p>Desktop and mobile controls</p></div></div>
+      </section>
+
+      <section class="games-section" id="games">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">PICK YOUR CHALLENGE</span>
+            <h2>Game <span class="accent">Library</span></h2>
+            <p>Find a game and make your next move.</p>
+          </div>
+          <div class="library-controls">
+            <input id="game-search" type="search" placeholder="Search games..." aria-label="Search games">
+            <select id="category-filter" aria-label="Filter by category">
+              <option value="all">All categories</option>
+              <option value="horror">Horror</option>
+              <option value="action">Action</option>
+              <option value="arcade">Arcade</option>
+              <option value="puzzle">Puzzle</option>
+              <option value="casual">Casual</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <button class="filter-chip active" data-filter="all">All games</button>
+          <button class="filter-chip" data-filter="favorites">♥ Favorites</button>
+          <button class="filter-chip" data-filter="played">Recently played</button>
+        </div>
+
+        <div class="game-grid" id="game-grid"></div>
+        <p class="empty-state hidden" id="empty-state">No games found. Try another search.</p>
+      </section>
+
+      <section class="continue-section">
+        <div>
+          <span class="eyebrow">YOUR PROGRESS</span>
+          <h2>Keep <span class="accent">playing.</span></h2>
+          <p>Your scores and favorites are saved in this browser.</p>
+        </div>
+        <button class="secondary-btn" id="reset-stats">Reset progress</button>
+      </section>
+    </main>
+
+
+    
+<section class="creator-section">
+  <div class="creator-line"></div>
+
+  <span class="creator-label">THE MIND BEHIND PLAYVERSE</span>
+
+  <h2>Designed & Developed by</h2>
+
+  <h3 class="creator-name">Nivedita Kirar<span>.</span></h3>
+
+  <p class="creator-role">
+    CSE Student <span>•</span> Frontend Developer <span>•</span> Creative Builder
+  </p>
+
+  <p class="creator-description">
+    Building interactive digital experiences through creativity,
+    code, and a passion for technology.
+  </p>
+
+  <div class="creator-tags">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>Game Development</span>
+  </div>
+
+  <div class="creator-links">
+    <a href="https://github.com/"
+       target="_blank" rel="noopener noreferrer">
+      GitHub ↗
+    </a>
+
+    <a href="https://www.linkedin.com/in/nivedita-kirar-2107042b6/?isSelfProfile=true"
+       target="_blank" rel="noopener noreferrer">
+      LinkedIn ↗
+    </a>
+  </div>
+
+  <div class="creator-signature">
+    <span class="signature-icon">P</span>
+    <span>CRAFTED WITH CURIOSITY & CODE</span>
+  </div>
+</section>
+
+
+    <footer>
+      <a class="brand footer-brand" href="#"><span class="brand-icon">P</span> PLAYVERSE</a>
+      <p>Made for curious minds and fearless players.</p>
+      <span>© <span id="year"></span> PLAYVERSE</span>
+    </footer>
+  </div>
+
+  <div class="modal hidden" id="game-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-panel">
+      <header class="modal-header">
+        <div>
+          <span class="eyebrow" id="modal-category">ARCADE GAME</span>
+          <h2 id="modal-title">Game title</h2>
+        </div>
+        <button class="close-btn" id="close-game" aria-label="Close game">✕</button>
+      </header>
+
+      <div class="game-toolbar">
+        <span class="score-pill">Score: <b id="current-score">0</b></span>
+        <span class="score-pill">Best: <b id="current-best">0</b></span>
+        <span class="status-pill" id="game-status">Ready</span>
+      </div>
+
+      <div class="play-area" id="play-area"></div>
+
+      <div class="game-footer">
+        <p id="game-help">Choose Start to play.</p>
+        <div class="game-buttons">
+          <button class="secondary-btn" id="pause-game">Pause</button>
+          <button class="primary-btn" id="restart-game">Restart ↻</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
